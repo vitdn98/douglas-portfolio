@@ -1,0 +1,19 @@
+{
+  "components": [
+    {
+      "name": "Button",
+      "path": "./components/Button.tsx",
+      "description": "A reusable button component"
+    },
+    {
+      "name": "Card",
+      "path": "./components/Card.tsx",
+      "description": "A card component for displaying content"
+    },
+    {
+      "name": "Navbar",
+      "path": "./components/Navbar.tsx",
+      "description": "A navigation bar component"
+    }
+  ]
+}
