@@ -1,0 +1,33 @@
+
+FROM jenkins/jenkins:lts
+
+USER root
+
+ENV MAVEN_VERSION 3.8.6
+
+RUN apt update; \
+  apt upgrade -y; \
+  apt install -y default-jre curl wget git nano; \
+  apt-get clean
+
+RUN apt install -y openjdk-11-jdk
+ENV JAVA_HOME  /usr/lib/jvm/java-11-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
+
+
+RUN apt-get install -y wget
+
+RUN wget --no-verbose -O /tmp/apache-maven-3.8.6-bin.tar.gz 
+https://dlcdn.apache.org/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.tar.gz
+
+RUN tar xzf /tmp/apache-maven-3.8.6-bin.tar.gz -C /opt/
+RUN ln -s /opt/apache-maven-3.8.6 /opt/maven
+RUN ln -s /opt/maven/bin/mvn /usr/local/bin
+RUN rm -f /tmp/apache-maven-3.8.6-bin.tar.gz 
+ENV MAVEN_HOME /opt/maven
+
+RUN chown -R jenkins:jenkins /opt/maven
+
+RUN apt-get clean
+
+USER jenkins
