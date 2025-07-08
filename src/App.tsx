@@ -59,7 +59,7 @@ const App: React.FC = () => {
             Douglas Nguyen
           </h1>
           <p className="text-xl mt-4 text-gray-300">
-            Software Engineer | Rockville, MD
+            Computer Science Graduate | Rockville, MD
           </p>
           <div className="flex flex-wrap justify-center mt-6 gap-3">
             <a href="mailto:douglasnguyen181@gmail.com">
